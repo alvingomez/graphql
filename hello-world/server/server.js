@@ -20,6 +20,7 @@ schema{
 `;
 
 // Resolvers are the "implementation" 
+/**resolver is responsible for providing the data for the greeting field in the Query type */
 const resolvers = {
     Query:{
         greeting: () => 'Hello world!',

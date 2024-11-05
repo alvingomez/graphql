@@ -1,0 +1,59 @@
+#THIS IS A CUSTOM OBJECT IN SCHEMA
+#This code defines the "root" Query type, which a special type in GraphQL
+#This is the "entry point" for all read operations in a GraphQL API.
+#It's like the main menu of the API
+#It defines all the possible queries that clients can make to fetch data.
+#Think of it as the "root" or "top-level" of your query structure.
+
+type Query{
+    jobs:[Job!] #PREVENT ARRAY FRON BEING NULLABLE USE !
+}
+
+type Job {
+    id:ID! #Scalar type
+    title:String!
+    description:String
+}
+
+# In GraphQL, type Query is not like a data type such as integer or string. 
+#  >>Instead, it's more like defining the structure of your API.
+# Here's a basic explanation:
+
+# 1.type Query:
+#    - This is like creating a menu for your API.
+#    - It lists all the things a user can ask for.
+
+# 2.job: Job:
+#    - This is like an item on the menu.
+#    - job is the name of what you can ask for.
+#    - Job (after the colon) is what type of thing you'll get back.
+   
+
+# Let's use a real-world analogy:
+# Imagine a restaurant menu:
+
+# Menu (this is like 'type Query'):
+#   - Burger (this is like 'job: Job')
+#   - Salad
+#   - Drink
+
+# In this analogy:
+# - The Menu is your Query type.
+# - Burger is like your job field.
+# - The type of food (burger) is like your Job type.
+
+# So when you write:
+
+# **File: /home/devvin/codelab/graphql/job-board/server/schema.graphql**
+
+# graphql
+# type Query {
+#     job: Job
+# }
+
+
+# You're essentially saying: 
+# "In my API menu, you can ask for a 'job', and you'll get back something of type 'Job'."
+
+# This structure allows GraphQL to know what queries are available and what kind of data each query will return.
+#  It's a way of organizing and describing your API's capabilities.
